@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971PA.Assessments">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Assessments" TextColor="White" FontSize="32" Padding="50, 10, 10, 10" BackgroundColor="#2C69BC"/>
+
+            <ListView x:Name="AssessmentListView" VerticalOptions="FillAndExpand" SeparatorVisibility="None" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell IsEnabled="True">
+                            <Frame Padding="10,10,10,10" Margin="10,10,10,10" BorderColor="#2C69BC" MinimumHeightRequest="50">
+                                <Grid MinimumHeightRequest="50">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Type}" Grid.Row="0" Grid.Column="3"/>
+                                    <Label Text="Start Date:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                                    <Label Text="{Binding StartDate, StringFormat='{}{0:MM/dd/yyyy}'}" Grid.Row="1" Grid.Column="1"/>
+                                    <Label Text="End Date:" Grid.Row="1" Grid.Column="2" FontAttributes="Bold"/>
+                                    <Label Text="{Binding EndDate, StringFormat='{}{0:MM/dd/yyyy}'}" Grid.Row="1" Grid.Column="3"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <Button x:Name="AddAssessment" Text="Add Assessment" Margin="50, 10, 50, 10" VerticalOptions="End" Clicked="ToAssessmentEditor_Clicked"/>
+            <Button x:Name="Cancel" Text="CANCEL" Margin="50,10,50,10" VerticalOptions="End" Clicked="CancelAdd_OnClick" IsVisible="False"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

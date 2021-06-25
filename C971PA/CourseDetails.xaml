@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971PA.CourseDetails">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="CourseTitle" TextColor="White" BackgroundColor="#2C69BC" Padding="20, 10, 10, 0" FontSize="32" />
+            <Grid Margin="15, 0, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Turn On Notifications" VerticalOptions="Center" Grid.Row="0" Grid.Column="0"/>
+                <Switch x:Name="CourseNotification" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" ThumbColor="#2C69BC" OnColor="SkyBlue" Toggled="OnToggle"/>
+                <Label Text="Start Date:" FontAttributes="Bold" VerticalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+                <Label x:Name="CourseStart" VerticalOptions="Center"  Grid.Row="1" Grid.Column="1"/>
+                <Label Text="End Date:" FontAttributes="Bold" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/>
+                <Label x:Name="CourseEnd" VerticalOptions="Center"  Grid.Row="2" Grid.Column="1"/>
+                <Label Text="Status:" FontAttributes="Bold" VerticalOptions="Center" Grid.Row="3" Grid.Column="0"/>
+                <Label x:Name="CourseStatus" VerticalOptions="Center" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="Instructor:" FontAttributes="Bold" Grid.Row="4" Grid.Column="0"/>
+                <Label x:Name="InstName" VerticalOptions="Center" Grid.Row="4" Grid.Column="1"/>
+                <Label Text="Instructor Phone#:" FontAttributes="Bold" Grid.Row="5" Grid.Column="0"/>
+                <Label x:Name="InstPhone" VerticalOptions="Center" Grid.Row="5" Grid.Column="1"/>
+                <Label Text="Instructor Email:" FontAttributes="Bold" Grid.Row="6" Grid.Column="0"/>
+                <Label x:Name="InstEmail" VerticalOptions="Center" Grid.Row="6" Grid.Column="1"/>
+            </Grid>
+            <Frame BorderColor="#2C69BC" Margin="15, 0, 15, 0">
+                <StackLayout>
+                    <Label Text="Notes" FontAttributes="Bold"/>
+                    <BoxView Color="#2C69BC" HeightRequest="1" HorizontalOptions="Fill"/>
+                    <Label x:Name="CourseNotes" MinimumHeightRequest="40"/>
+                    <Button Text="Share Notes" Margin="60, 0, 60, 0" x:Name="ShareButton" Clicked="ShareButton_OnClick"/>
+                </StackLayout>
+            </Frame>
+            <ListView x:Name="CourseAssessmentList" VerticalOptions="FillAndExpand" SeparatorVisibility="None" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell IsEnabled="True">
+                            <Frame Padding="10,10,10,10" Margin="10,10,10,10" BorderColor="#2C69BC" MinimumHeightRequest="50">
+                                <Grid MinimumHeightRequest="50">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Type}" Grid.Row="0" Grid.Column="3"/>
+                                    <Label Text="Start Date:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                                    <Label Text="{Binding StartDate, StringFormat='{}{0:MM/dd/yyyy}'}" Grid.Row="1" Grid.Column="1"/>
+                                    <Label Text="End Date:" Grid.Row="1" Grid.Column="2" FontAttributes="Bold"/>
+                                    <Label Text="{Binding EndDate, StringFormat='{}{0:MM/dd/yyyy}'}" Grid.Row="1" Grid.Column="3"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Add Assessment" Margin="50,0,50,0" Clicked="AddAssessment_OnClick" x:Name="AssessmentAdd"/>
+
+            <StackLayout Spacing="0" VerticalOptions="CenterAndExpand"/>
+            <Button x:Name="RemoveCourse" Text="Remove From Term" Margin="50, 10, 50, 10" IsVisible="False" Clicked="Remove_OnClick"/>
+            <Grid VerticalOptions="End">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="EDIT" Grid.Row="0" Grid.Column="0" Clicked="EditButton_OnClick"/>
+                <Button Text="DELETE" Grid.Row="0" Grid.Column="1" Clicked="DeleteButton_OnClick"/>
+                
+            </Grid>
+            <Button Text="CLOSE" Margin="20,5,20,5" Clicked="CloseButton_OnClick" VerticalOptions="End"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971PA.AssessmentEditor">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Assessment Editor" TextColor="White" BackgroundColor="#2C69BC" Padding="20, 10, 10, 10" FontSize="32" />
+            <Grid Margin="15, 0, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Name" VerticalOptions="Center" Grid.Row="0" Grid.Column="0"/>
+                <Entry Placeholder="Assessment Name" x:Name="NameEntry" Grid.Row="0" Grid.Column="1"/>
+                <Label Text="Type" VerticalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+                <Picker VerticalOptions="Center" x:Name="TypePicker" Grid.Row="1" Grid.Column="1" Title="Select Type"/>
+                <Label Text="Start Date" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/>
+                <DatePicker VerticalOptions="Center" x:Name="StartDatePicker" Grid.Row="2" Grid.Column="1" DateSelected="StartDatePicker_DateSelected"/>
+                <Label Text="End Date" VerticalOptions="Center" Grid.Row="3" Grid.Column="0"/>
+                <DatePicker VerticalOptions="Center" x:Name="EndDatePicker" Grid.Row="3" Grid.Column="1"/>
+            </Grid>
+            <StackLayout Spacing="0" VerticalOptions="CenterAndExpand"/>
+            <Grid VerticalOptions="End">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="SAVE" Grid.Row="0" Grid.Column="0" Clicked="SaveButton_OnClick"/>
+                <Button Text="CANCEL" Grid.Row="0" Grid.Column="1" Clicked="CancelButton_OnClick"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971PA.AssessmentDetails">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="AssessmentTitle" TextColor="White" BackgroundColor="#2C69BC" Padding="20, 10, 10, 10" FontSize="32" />
+            <Grid Margin="15, 0, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Turn On Notifications" VerticalOptions="Center" Grid.Row="0" Grid.Column="0"/>
+                <Switch x:Name="AssessmentNotification" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" ThumbColor="#2C69BC" OnColor="SkyBlue" Toggled="OnToggle"/>
+                <Label Text="Assessment Type:" VerticalOptions="Center" Grid.Row="1" Grid.Column="0"  FontAttributes="Bold"/>
+                <Label x:Name="Type" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Start Date:" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"  FontAttributes="Bold"/>
+                <Label x:Name="StartDisplay" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="End Date:" VerticalOptions="Center" Grid.Row="3" Grid.Column="0"  FontAttributes="Bold"/>
+                <Label x:Name="EndDisplay" VerticalOptions="Center" Grid.Row="3" Grid.Column="1"/>
+            </Grid>
+            <StackLayout Spacing="0" VerticalOptions="CenterAndExpand"/>
+            <Button x:Name="RemoveAssessment" Text="Remove From Course" Margin="50, 10, 50, 10" IsVisible="False" Clicked="Remove_OnClick"/>
+            <Grid VerticalOptions="End">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="EDIT" Grid.Row="0" Grid.Column="0" Clicked="EditButton_OnClick"/>
+                <Button Text="DELETE" Grid.Row="0" Grid.Column="1" Clicked="DeleteButton_OnClick"/>
+            </Grid>
+            <Button Text="CLOSE" Clicked="CloseButton_OnClick" VerticalOptions="End" Margin="20, 5, 20, 5"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
